@@ -6,10 +6,24 @@ pipeline {
         sh 'ping -c 2 localhost'
       }
     }
-    stage('Test') {
-      steps {
-        echo 'Testing Jenkins'
-        sh 'ping -c 3 localhost'
+    stage('Browser Tests') {
+      parallel {
+        stage('Chrome Test') {
+          steps {
+            sh 'ping -c 3 localhost'
+          }
+        }
+        stage('Firefox Test') {
+          steps {
+            sh 'ping -c 3 localhost'
+          }
+        }
+        stage('Safari Test') {
+          steps {
+            sh 'ping -c 3 localhost'
+            sleep 3
+          }
+        }
       }
     }
     stage('Deploy') {

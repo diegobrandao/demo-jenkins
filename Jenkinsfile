@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Firefox Test') {
           steps {
-            sh 'ping -c 3 localhost'
+            sh 'dsfasdf'
           }
         }
         stage('Safari Test') {

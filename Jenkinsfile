@@ -22,6 +22,7 @@ pipeline {
         stage('Firefox') {
           steps {
             echo 'Testing Firefox'
+            sh 'fdsafdsfa'
           }
         }
       }

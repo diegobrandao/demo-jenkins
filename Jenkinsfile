@@ -8,10 +8,10 @@ pipeline {
     }
     stage('Test') {
       parallel {
-        stage('Test') {
+        stage('Safari') {
           steps {
             echo 'Testing'
-            sh 'dsafasfsa'
+            sleep 10
           }
         }
         stage('Chrome Test') {
@@ -30,6 +30,7 @@ pipeline {
       steps {
         sh 'ping -c 4 localhost'
         echo 'Deploying'
+        input 'Proceed?'
       }
     }
   }

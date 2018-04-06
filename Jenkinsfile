@@ -6,9 +6,24 @@ pipeline {
         sh 'ping -c 2 localhost'
       }
     }
-    stage('Test') {
-      steps {
-        sh 'ping -c 3 localhost'
+    stage('Browser Tests') {
+      parallel {
+        stage('Chrome Tests') {
+          steps {
+            sh 'ping -c 4 localhost'
+          }
+        }
+        stage('Firefox Tests') {
+          steps {
+            sh 'ping -c 2 localhost'
+            sleep 10
+          }
+        }
+        stage('Safari Test') {
+          steps {
+            echo 'Safari'
+          }
+        }
       }
     }
     stage('Deploy') {

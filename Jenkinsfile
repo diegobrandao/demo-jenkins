@@ -28,8 +28,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'ping -c 5 localhost'
-        echo 'Deploying'
+        sh 'ping -c 2 localhost'
       }
     }
   }

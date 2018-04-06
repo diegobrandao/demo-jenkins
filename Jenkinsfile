@@ -25,10 +25,20 @@ pipeline {
         }
       }
     }
-    stage('Deploy') {
+    stage('Deploy QA') {
       steps {
         sh 'ping -c 4 localhost'
         sleep 5
+      }
+    }
+    stage('Validate') {
+      steps {
+        input 'Proceed'
+      }
+    }
+    stage('Deploy PROD') {
+      steps {
+        sh 'ping -c 4 localhost'
       }
     }
   }

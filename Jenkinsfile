@@ -18,6 +18,11 @@ pipeline {
             sh 'ping -c 4 localhost'
           }
         }
+        stage('Safari ') {
+          steps {
+            sh 'sadfsafa'
+          }
+        }
       }
     }
     stage('Validate') {

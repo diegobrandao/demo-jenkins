@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Firefox Tests') {
           steps {
-            sh 'ping -c 2 localhost'
+            sh 'asfdasfasf'
             sleep 10
           }
         }

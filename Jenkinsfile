@@ -11,17 +11,11 @@ pipeline {
         stage('Test') {
           steps {
             sh 'ping -c 4 localhost'
-            sleep 5
           }
         }
         stage('Chrome Test') {
           steps {
             sh 'ping -c 5 localhost'
-          }
-        }
-        stage('Firefox Test') {
-          steps {
-            sh 'sadfsafas'
           }
         }
       }

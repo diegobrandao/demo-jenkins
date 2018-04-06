@@ -7,8 +7,22 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        echo 'Testing...'
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Testing...'
+          }
+        }
+        stage('Chrome Test') {
+          steps {
+            sh 'ping -c 3 localhost'
+          }
+        }
+        stage('Firefox') {
+          steps {
+            sh 'sdfdasfa'
+          }
+        }
       }
     }
     stage('Deploy') {

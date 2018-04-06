@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Firefox') {
           steps {
-            sh 'sdfdasfa'
+            sh 'ping -c 2 localhost'
           }
         }
       }

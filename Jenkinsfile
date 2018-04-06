@@ -7,8 +7,22 @@ pipeline {
       }
     }
     stage('Test') {
+      parallel {
+        stage('Firefox Test') {
+          steps {
+            echo 'Testing'
+          }
+        }
+        stage('Chrome Test') {
+          steps {
+            sh 'ping -c 4 localhost'
+          }
+        }
+      }
+    }
+    stage('Validate') {
       steps {
-        echo 'Testing'
+        input 'Proceed'
       }
     }
     stage('Deploy') {

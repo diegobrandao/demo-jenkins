@@ -7,14 +7,38 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        echo 'Testing'
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Testing'
+          }
+        }
+        stage('Chrome Test') {
+          steps {
+            sh 'ping -c 3 localhost'
+          }
+        }
+        stage('Firefox Test') {
+          steps {
+            sh 'ping -c 3 localhost'
+            sleep 10
+          }
+        }
       }
     }
-    stage('Deploy') {
+    stage('Deploy To Stage') {
       steps {
         sh 'ping -c 4 localhost'
-        sleep 5
+      }
+    }
+    stage('Validate') {
+      steps {
+        input 'Proceed?'
+      }
+    }
+    stage('Deploy Prod') {
+      steps {
+        echo 'Deploying...'
       }
     }
   }

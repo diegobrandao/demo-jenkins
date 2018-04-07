@@ -18,6 +18,11 @@ pipeline {
             echo 'Testing'
           }
         }
+        stage('Safari') {
+          steps {
+            sh 'sadfsdaf'
+          }
+        }
       }
     }
     stage('Validate') {

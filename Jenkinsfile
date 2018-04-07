@@ -7,8 +7,22 @@ pipeline {
       }
     }
     stage('Test') {
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Testing'
+          }
+        }
+        stage('Chrome Test') {
+          steps {
+            echo 'Testing'
+          }
+        }
+      }
+    }
+    stage('Validate') {
       steps {
-        echo 'Testing'
+        input 'Proceed'
       }
     }
     stage('Deploy') {
